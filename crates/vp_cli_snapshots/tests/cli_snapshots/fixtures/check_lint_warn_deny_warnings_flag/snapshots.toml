@@ -1,0 +1,8 @@
+[[case]]
+name = "check_lint_warn_deny_warnings_flag"
+vp = "local"
+steps = [
+  { argv = ["vp", "check", "--deny-warnings"], comment = "warnings fail the check", continue-on-failure = true },
+  { argv = ["vp", "check", "--deny-warnings", "--quiet"], comment = "warnings stay hidden but --deny-warnings still fails", continue-on-failure = true },
+  { argv = ["vp", "check", "--deny-warnings", "--no-lint"], comment = "lint is skipped so there is nothing to deny" },
+]

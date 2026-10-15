@@ -228,7 +228,7 @@ pub(crate) async fn execute_check(
                 let quiet_warning_only =
                     quiet && failure.errors == 0 && status == ExitStatus::SUCCESS;
                 if !quiet_warning_only {
-                    if failure.errors == 0 && failure.warnings > 0 && !deny_warnings {
+                    if failure.errors == 0 && failure.warnings > 0 {
                         output::warn(lint_message_kind.warning_heading());
                     } else {
                         output::error(lint_message_kind.issue_heading());
